@@ -1,3 +1,4 @@
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -28,6 +29,10 @@ violation_frequency_counts = facility_violation_years['ViolationFrequency'].valu
 
 # Save the histogram data to a CSV file
 violation_frequency_counts.to_csv('violation_frequency_histogram.csv')
+
+# Output facilities with 2 or more distinct violations
+facilities_with_multiple_violations = facility_violation_years[facility_violation_years['DistinctViolationYears'] >= 2]
+facilities_with_multiple_violations.to_csv('facilities_with_multiple_violations.csv', index=False)
 
 # Optionally, plot the histogram
 plt.figure(figsize=(10, 6))
